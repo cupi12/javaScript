@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>iframe</title>
+</head>
+<body>
+	<form action="getData.jsp" method="get">
+		<p>
+			1) 이름 : <input type="text" name="myname" size="15">
+		</p>
+		<p>
+			2) ID : <input type="text" name="id" size="15" required>
+		</p>
+		<p>
+			3) PW : <input type="password" name="pwd" size="15"
+				placeholder="비밀번호" required>
+		</p>
+		<p>
+			4) 전공 : <select name="major">
+				<option value="1">Java</option>
+				<option value="2">Oracle</option>
+				<option value="3">javaScript</option>
+			</select>
+		</p>
+		<p>
+			4) 성별 : <input type="radio" name="gender" value="male">남자 <input
+				type="radio" name="gender" value="female">여자
+		</p>
+		<input type="submit" value="전송"> <input type="reset"
+			value="다시작성">
+	</form>
+</body>
+</html>

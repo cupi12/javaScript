@@ -10,8 +10,8 @@
 	<%
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		String name= request.getParameter("myname");
-		String major=request.getParameter("major");
+		String name= request.getParameter("myName");
+		String major=request.getParameter("myMajor");
 		out.print("이름은 : " + name + ", 전공은 : " + major);	
 	%>
 
