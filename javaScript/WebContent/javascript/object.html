@@ -36,12 +36,12 @@
         for (i in persons) {
             console.log(persons[i].firstName + ", " + persons[i].lastName)
             console.log("==============object=============")
-            for (obj in person) {
-                console.log(i + " 번째 person");
-                for (o in person) {
-                    console.log(persons[i][o])
-                }
+
+            // console.log(i + " 번째 person");
+            for (o in person) {
+                console.log(persons[i][o],o)
             }
+
         }
     </script>
 </body>
