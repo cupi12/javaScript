@@ -13,7 +13,7 @@
 		String name= request.getParameter("myname");
 		String major=request.getParameter("major");
 		out.print("이름은 : " + name + ", 전공은 : " + major);	
-	%>
+	%> 
 
 </body>
 </html>
