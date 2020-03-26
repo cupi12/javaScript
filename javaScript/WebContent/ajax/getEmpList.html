@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>getEmpList.html</title>
+</head>
+<body>
+	<p id="show"></p>
+
+
+	<script>
+		var xhtp = new XMLHttpRequest();
+		xhtp.onreadystatechange = function() { //onreadystatechange : 서버에 통신을 요청하여 file을 주고받음(4번)
+			//console.log("readyState" + xhtp.readyState + ", status : " + xhtp.status);
+			if (xhtp.readyState == 4 && xhtp.status == 200) {
+				var parsedData = JSON.parse(xhtp.responseText); //JSON.parse
+				//console.log(parsedData); //응답 결과를 찍음
+
+				showPage(parsedData);
+			}
+		}
+		xhtp.open("get", "../GetEmpListServlet"); //console 출력
+		// 첫번째 매개변수 요청 방식, 2번째 : 2번째 매개변수 안에 있는 파일을 요청 (status가 200번이 뜨면 가져온것)
+		xhtp.send();
+		
+		function showPage(parsedData) {		
+			var fields= ["empId","firstName","lastName","salary"];
+			var $tb, $tr, $text
+			var tab = document.createElement("table");
+			tab.setAttribute("border", 1);
+
+			$tb = document.getElementById("tb"); 
+			//console.log(datas[0].empId);
+
+			parsedData.forEach(function(obj) {
+				//console.log(o.empId,);
+				$tr = document.createElement("tr"); //1번만
+
+				fields.forEach(function(f){
+					
+			
+					$text = document.createTextNode(obj[f]);
+					$td = document.createElement("td");
+					$td.appendChild($text);
+					$tr.appendChild($td);
+				})
+				tab.appendChild($tr);
+
+				/*$text = document.createTextNode(obj.empId);
+				$td = document.createElement("td");
+				$td.appendChild($text);
+				$tr.appendChild($td);
+
+				$text = document.createTextNode(obj.firstName);
+				$td = document.createElement("td");
+				$td.appendChild($text);
+				$tr.appendChild($td);
+
+				$text = document.createTextNode(obj.lastName);
+				$td = document.createElement("td");
+				$td.appendChild($text);
+				$tr.appendChild($td);
+
+				$text = document.createTextNode(obj.salary);
+				$td = document.createElement("td");
+				$td.appendChild($text);
+				$tr.appendChild($td);
+
+				tab.appendChild($tr);*/
+			});
+			document.getElementById("show").appendChild(tab);
+
+		}
+	</script>
+</body>
+</html>
