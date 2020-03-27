@@ -17,13 +17,29 @@ public class EmpDAO {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe"; // SQL url
 		try {// 읽기 쓰기를 하는 작업에는 반드시 예외처리를 해줘야함
 			Class.forName("oracle.jdbc.driver.OracleDriver"); // oracle 라이브러리 주소
-			conn = DriverManager.getConnection(url, user, pass); // 접속을 하는 령어
+			conn = DriverManager.getConnection(url, user, pass); // 접속을 하는 명령어
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public void insertEmp(Employee emp){
+		String sql = "insert into emp (employee_id, last_name, email, hire_date, job_id) \r\n" + 
+				"values((select max(employee_id)+1 from emp), ?,?,sysdate,?)"; //last_name, email, job_id 순으
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,  emp.getLastName()); //첫번째 위치(?)에 값을 넣음
+			pstmt.setString(2, emp.getEmail()); //두번째 위치(?)에 값을 넣음
+			pstmt.setString(3,  emp.getJobId()); //세번째 위치(?)에 값을 넣음
+			int iCnt = pstmt.executeUpdate(); //insert, update, delete 의 경우에는 execute를 사용함
+			System.out.println(iCnt + "건 입력.");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public List<Employee> getEmpList() {

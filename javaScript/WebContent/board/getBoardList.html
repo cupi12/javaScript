@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<p id="show"></p>
+	<script>
+		var show = document.getElementById("show");
+		var fields = [ "Board_No", "content", "Writer", "Create_Date" ];
+		var $table, $tr, $td, $text;
+		var xhtp = new XMLHttpRequest();
+		xhtp.onreadystatechange = function() {
+			if (xhtp.readyState == 4 && xhtp.status == 200) { //정상적인 서버이면,
+				console.log(xhtp.responseText);
+				var datas = JSON.parse(xhtp.responseText); //실제 데이터
+				$table = document.createElement("table");
+				$table.setAttribute("border",1);
+				
+				console.log(datas);
+				datas.forEach(function(obj) {
+					$tr = document.createElement("tr");
+					fields.forEach(function(f) {
+						var isNull = obj[f];
+						if(!isNull){
+							isNull = "-";}
+						$text = document.createTextNode(isNull);
+						$td = document.createElement("td");
+						$td.appendChild($text);
+						$tr.appendChild($td);
+					})
+					$table.appendChild($tr);
+
+				})
+			}
+				document.getElementById("show").appendChild($table);
+
+		}
+		xhtp.open("get", "../GetBoardListServlet", true);
+		xhtp.send();
+
+		// show.appendChild($table);
+	</script>
+
+
+</body>
+
+</html>

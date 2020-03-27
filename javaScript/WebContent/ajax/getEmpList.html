@@ -6,8 +6,6 @@
 </head>
 <body>
 	<p id="show"></p>
-
-
 	<script>
 		var xhtp = new XMLHttpRequest();
 		xhtp.onreadystatechange = function() { //onreadystatechange : 서버에 통신을 요청하여 file을 주고받음(4번)
@@ -16,7 +14,7 @@
 				var parsedData = JSON.parse(xhtp.responseText); //JSON.parse
 				//console.log(parsedData); //응답 결과를 찍음
 
-				showPage(parsedData);
+				showPage(parsedData); //showPage function 출력
 			}
 		}
 		xhtp.open("get", "../GetEmpListServlet"); //console 출력
@@ -29,16 +27,15 @@
 			var tab = document.createElement("table");
 			tab.setAttribute("border", 1);
 
-			$tb = document.getElementById("tb"); 
 			//console.log(datas[0].empId);
 
-			parsedData.forEach(function(obj) {
+			parsedData.forEach(function(obj) { //필드 : 값 다 나옴
 				//console.log(o.empId,);
 				$tr = document.createElement("tr"); //1번만
 
-				fields.forEach(function(f){
+				fields.forEach(function(f){ //fields를 참조하여 값만 출력하도록
 					
-			
+		//console.log(obj[f]);
 					$text = document.createTextNode(obj[f]);
 					$td = document.createElement("td");
 					$td.appendChild($text);

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>insertEmp.html</title>
+</head>
+<body>
+	LastName : <input type="text" name="" id="lastname"><br>
+	Email : <input type="text" name="" id="email"> <br>
+	job : <input type="text" name="" id="job_id">
+    <button onclick="insertEmpFunc()">Click</button>
+    <script>
+        function insertEmpFunc(){ //버튼 function
+            var lName = document.getElementById("lastname").value; //값을 가져오기 위해 .value사용
+            var email = document.getElementById("email").value;
+            var jobId = document.getElementById("job_id").value;
+            var xhtp = new XMLHttpRequest();
+            xhtp.onreadystatechange = function(){ 
+                console.log(xhtp.responseText);
+            }
+            xhtp.open("post","../InsertEmpServlet",true); //true:비동기 방식, false:동기방식
+            xhtp.setRequestHeader('Content-type','application/x-www-form-urlencoded');//
+            xhtp.send("lastname="+lName+"&email="+email+"&jobId="+jobId); //사용자가 입력한 값을 파라미터로 던져 놓겠다 //서블릿값과 같아야함
+            //field1 = value1 $field2 = value2 $field3 = value3
+        }
+    </script>
+</body>
+</html>
