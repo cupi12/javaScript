@@ -30,7 +30,7 @@ public class BoardDAO {
 	}
 	
 	public List<Board> getBoardList() {
-		String sql = "select * from Board";
+		String sql = "select * from Board order by board_no desc";
 		List<Board> list = new ArrayList<>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql); // 오라클에서 해석해서 담음
@@ -54,7 +54,7 @@ public class BoardDAO {
 	
 	public Board getBoardInfo(int boardNo) { //매개값에 board number을 넣을것 한건조회
 		String sql = "select board_no, content, writer, create_date from board " + 
-				"where board_no = ?  order by board_no desc";
+				"where board_no = ?  ";
 		
 		Board brd = new Board();
 		try { //에러가 나면 catch문으로
@@ -64,9 +64,9 @@ public class BoardDAO {
 			
 			if(rs.next()) {
 				brd.setBoardno(rs.getInt("board_no"));
-				brd.setContent(rs.getString("Writer"));
 				brd.setContent(rs.getString("content"));
-				brd.setContent(rs.getString("create_date"));
+				brd.setWriter(rs.getString("writer"));
+				brd.setCreatedate(rs.getString("create_date"));
 			}
 			
 		} catch (SQLException e) {
@@ -79,7 +79,7 @@ public class BoardDAO {
 				"values( (select nvl(max(board_no),0)+1 from board)\r\n" + 
 				"         , ? -- 글내용\r\n" + 
 				"         , ?  -- 작성자\r\n" + 
-				"         , sysdate)"; 
+				"         , sysdate)" ; 
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 					

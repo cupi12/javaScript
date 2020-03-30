@@ -7,6 +7,14 @@
 </head>
 
 <body>
+	내용 :
+	<input type="text" id="content">
+	</input>
+	</br> 작성자 :
+	<input type="text" id="writer">
+	</input>
+	<br>
+	<button onclick="insertBoardFunc()" id="">Click</button>
 	<p id="show"></p>
 	<script>
 		var show = document.getElementById("show");
@@ -18,29 +26,53 @@
 				console.log(xhtp.responseText);
 				var datas = JSON.parse(xhtp.responseText); //실제 데이터
 				$table = document.createElement("table");
-				$table.setAttribute("border",1);
-				
+				$table.setAttribute("border", 1);
+
 				console.log(datas);
 				datas.forEach(function(obj) {
 					$tr = document.createElement("tr");
+					var $a = document.createElement("a");
 					fields.forEach(function(f) {
 						var isNull = obj[f];
-						if(!isNull){
-							isNull = "-";}
+						if (!isNull) {
+							isNull = "-";
+						}
 						$text = document.createTextNode(isNull);
 						$td = document.createElement("td");
-						$td.appendChild($text);
+						if (f == "Board_No") {
+							$a.setAttribute("href", "getBoard
+									.jsp?boardNo="	+ obj[f]);
+							$a.inner8088HTML = obj[f];
+							$td.appendChild($a);
+						} else {
+							$td.appendChild($text);
+						}
 						$tr.appendChild($td);
 					})
 					$table.appendChild($tr);
-
 				})
-			}
 				document.getElementById("show").appendChild($table);
-
+			}
 		}
 		xhtp.open("get", "../GetBoardListServlet", true);
 		xhtp.send();
+
+		function insertBoardFunc() { //버튼 function
+			var content = document.getElementById("content").value; //값을 가져오기 위해 .value사용
+			var writer = document.getElementById("writer").value;
+			console.log(content);
+			console.log(writer);
+			var xhtp = new XMLHttpRequest();
+			xhtp.onreadystatechange = function() {
+				console.log(xhtp.responseText);
+			}
+			xhtp.open("post", "../InsertBoardServlet", true); //true:비동기 방식, false:동기방식
+			xhtp.setRequestHeader('Content-type',
+					'application/x-www-form-urlencoded');//
+			xhtp.send("content=" + content + "&writer=" + writer); //사용자가 입력한 값을 파라미터로 던져 놓겠다 //서블릿값과 같아야함
+			//field1 = value1 $field2 = value2 $field3 = value3
+
+		}
 
 		// show.appendChild($table);
 	</script>

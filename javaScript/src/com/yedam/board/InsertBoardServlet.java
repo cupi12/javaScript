@@ -1,4 +1,4 @@
-package com.yedam.dev;
+package com.yedam.board;
 
 import java.io.IOException;
 
@@ -7,9 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.yedam.board.Board;
-import com.yedam.board.BoardDAO;
 
 
 @WebServlet("/InsertBoardServlet")
@@ -24,7 +21,7 @@ public class InsertBoardServlet extends HttpServlet {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 //		String boardNo = request.getParameter("board_no");
 		String writer = request.getParameter("writer");
-		String content = request.getParameter("Content");
+		String content = request.getParameter("content");
 		System.out.println("writer : " + writer
 							+ ", Content : " + content);
 		
@@ -34,11 +31,16 @@ public class InsertBoardServlet extends HttpServlet {
 		BoardDAO boardDAO = new BoardDAO(); //SQL넣기위함
 		boardDAO.insertBoard(brd);
 		
+		
+		
+		
+		
 				
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
+	
 
 }

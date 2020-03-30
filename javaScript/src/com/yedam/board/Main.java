@@ -13,8 +13,9 @@ public class Main {
 //		board.setWriter("user1");
 //		board.setContent("java test");
 //		
-//		b.insertBoard(board);
+//		b.insertBoard(board);	
 		
+	
 		BoardDAO b = new BoardDAO();
 		Board brd = b.getBoardInfo(3);
 		System.out.println(brd);
