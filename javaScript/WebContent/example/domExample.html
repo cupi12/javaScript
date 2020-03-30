@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dmExample.html</title>
+</head>
+
+<body>
+    <button id="add">Add Row</button>
+    <ul id="parentList">
+
+        <li>One</li>
+        <li>Two</li>
+
+    </ul>
+    <script>
+        var lis = document.querySelectorAll("ul li");  //ul태그 밑에 li태그들을 다 가져오세요
+        console.log(lis);
+        lis.forEach(function (a, b, c) {
+            console.log(a);
+            // console.log(b);
+            // console.log(c);
+            a.addEventListener("mouseover", function () {
+                a.style.backgroundColor = "yellow";
+            })
+            a.addEventListener("mouseout", function () {
+                a.style.backgroundColor = "";
+            })
+            a.addEventListener("click", function () { //click이벤트
+                var $btntxt = document.createTextNode("수정");
+                var inputs = document.querySelectorAll("#parentList input");               
+
+                inputs.forEach(function (obj){
+                    obj.parentNode.remove(); //li > input
+                })
+
+                lis.forEach(fuction(objs){
+                    if(objs.style.display =="none")
+                    objs.style.display = "";
+
+                })
+                
+                var text = a.innerHTML; //li태그 안의 값을 가져와서 text변수에 지정
+                var $li = document.createElement("li");
+                var $input = document.createElement("input");
+                var $btn = document.createElement("button");
+
+                $input.value = text;
+                $li.appendChild($input);
+                $li.appendChild($btn)
+                a.after($li); //a라고 하는 요소 뒤에다가 붙여 넣겠다.
+                a.style.display = 'none'; //원본은 숨기겠다.
+                $btn.appendChild($btntxt);   //버튼에 '수정'삽입
+            })//andOf Click Event
+
+        })
+
+        var numbers = ["Three", "Four", "Five"];
+        var btn = document.getElementById("add");
+        console.log(btn);
+        var i = 0;
+        btn.innerHTML = "한줄 추가";
+        btn.addEventListener("click", function (e) {
+            console.log(e);
+            var $li = document.createElement("li");
+            $li.addEventListener("mouseover", function (a) { //addEventListener(이벤트 이름, 기능)
+                console.log(a);
+                a.target.style.backgroundColor = "yellow";
+            })
+            $li.addEventListener("mouseout", function (a) { //addEventListener(이벤트 이름, 기능)
+                console.log(a);
+                a.target.style.backgroundColor = "";
+            })
+
+            var $text = document.createTextNode(numbers[i]);
+            i++;
+
+            $li.appendChild($text);
+            document.getElementById("parentList").appendChild($li);
+        })//endof btn.addEventListener
+    </script>
+</body>
+
+</html>
