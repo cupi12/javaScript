@@ -38,7 +38,7 @@ public class GetBoardListServlet extends HttpServlet {
 		JSONArray ary = new JSONArray();
 		BoardDAO dao = new BoardDAO();
 		for (Board b : dao.getBoardList()) {
-			obj.put("Board_No", b.getBoardno());
+			obj.put("board_No", b.getBoardno());
 			obj.put("content", b.getContent());
 			obj.put("Writer", b.getWriter());
 			obj.put("Create_Date", b.getCreatedate());

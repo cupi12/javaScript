@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p id="show"></p>
+<script>
+var xhtp = new XMLHttpRequest();
+xhtp.onreadystatechange = function(){
+	if(xhtp.readyState == 4 && xhtp.status == 200){
+		var parsedData = JSON.parse(xhtp.responseText);
+		showPage(parsedData);
+	}
+}
+xhtp.open("get","../GetDepartmentListServlet;");
+xhtp.send();
+
+function showPage(parsedData){
+	var fields = ["department_id","department_name","manager_id","location_id"];
+	var $tb, $tr, $text
+	var tab = document.createElement("table");
+	tab.setAttribute("border",1);
+	
+	parsedData.forEach(function(obj){
+		$tr = document.createElement("tr");
+		fields.forEach(function(f){
+			$text = document.createTextNode(obj[f]);
+			$td = document.createElement("td");
+			$td.appendChild($text);
+			$tr.appendChild($td);			
+		})
+		tab.appendChild($tr);
+
+	});
+	document.getElementById("show").appendChild(tab);
+
+}
+</script>
+</body>
+</html>

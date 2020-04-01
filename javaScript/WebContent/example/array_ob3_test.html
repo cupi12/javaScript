@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array_ob3_test.html</title>
+</head>
+<body>
+    <script>
+        var greenArr=["교대,", "방배", "강남"];
+        var yellowArr=["미금","정자","수서"];
+
+        greenArr.splice(2,1,"서초","역삼");  //2번 인덱스부터 1개 데이터 삭제후 삽입
+        console.log(greenArr); //교대, 방배, 서초, 역삼
+
+        var data1 = yellowArr.pop();  //data1에 수서 잘라서 저장
+        var data2 = yellowArr.shift(); //data2에 미금 잘라서 저장
+
+        yellowArr.push(data2);  //yellowArr 마지막 배열에 data2(미금) 입력
+        console.log(yellowArr); //정자, 미금
+
+        yellowArr.unshift(data1); //yellowArr 제일 앞 배열에 data1(수서) 입력
+        console.log(yellowArr); //수서, 정자, 미금
+    </script>
+</body>
+</html>

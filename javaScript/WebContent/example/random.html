@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="random()">메뉴 선택</button>
+    <script>
+        var food = ["짜장면", "돈가스", "된장찌개", "김치찌개", "회덮밥"];
+
+        function random() {
+            var $value = 0;
+            $value = Math.random() * 5;
+            var rMenu = parseInt($value);
+
+            alert(food[rMenu]);
+
+            
+            //     if($value <2 && $value >1){
+            //         alert("짜장면")
+            //     }
+            // })
+
+        }//end of random
+
+
+    </script>
+</body>
+
+</html>

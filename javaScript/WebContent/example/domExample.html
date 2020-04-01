@@ -30,18 +30,17 @@
             })
             a.addEventListener("click", function () { //click이벤트
                 var $btntxt = document.createTextNode("수정");
-                var inputs = document.querySelectorAll("#parentList input");               
+                var inputs = document.querySelectorAll("#parentList input");
 
-                inputs.forEach(function (obj){
+                inputs.forEach(function (obj) {
                     obj.parentNode.remove(); //li > input
                 })
 
-                lis.forEach(fuction(objs){
-                    if(objs.style.display =="none")
-                    objs.style.display = "";
-
+                lis.forEach(function (objs) {
+                    if (objs.style.display == "none")
+                        objs.style.display = "";
                 })
-                
+
                 var text = a.innerHTML; //li태그 안의 값을 가져와서 text변수에 지정
                 var $li = document.createElement("li");
                 var $input = document.createElement("input");
@@ -54,7 +53,6 @@
                 a.style.display = 'none'; //원본은 숨기겠다.
                 $btn.appendChild($btntxt);   //버튼에 '수정'삽입
             })//andOf Click Event
-
         })
 
         var numbers = ["Three", "Four", "Five"];
