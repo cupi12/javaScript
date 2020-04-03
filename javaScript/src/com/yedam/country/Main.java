@@ -9,5 +9,10 @@ public static void main(String[] args) {
 	for(Country c : list) {
 		System.out.println(c);
 	}
+	
+	CountryService ct =  new CountryImpl();
+	Country cnt = ct.getCountryList();
+	
+	
 }
 }

@@ -2,9 +2,9 @@ package com.yedam.country;
 
 import java.util.List;
 
-public class CountryService {
+public interface CountryService  {
 
-	public List<Country> getCountryList();
+		public List<Country> getCountryList();
+				
 	
-	public Country getCountry(int id);
 }
