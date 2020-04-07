@@ -18,14 +18,13 @@ public class PredicateExample {
 				sum += student.getEnglishScore();
 				cnt++;
 			} else {
-
 			}
 		}
 		return (double) sum / cnt;
 	}
 
 	public static void main(String[] args) {
-		double result = avg(new Predicate<Student>() {//익명개체
+		double result = avg(new Predicate<Student>() {// 익명개체
 
 			@Override
 			public boolean test(Student t) {
@@ -34,8 +33,8 @@ public class PredicateExample {
 			}
 		});
 		System.out.println("(익명개체) 남자 평균결과 : " + result);
-		
-		result = avg(t -> t.getSex().equals("여자")); //람다식
+
+		result = avg(t -> t.getSex().equals("여자")); // 람다식
 		System.out.println("(람다식) 여자 평균 결과: " + result);
 	}// EndOfMain
 }// EndOfClass
