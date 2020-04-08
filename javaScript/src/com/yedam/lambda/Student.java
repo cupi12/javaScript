@@ -26,7 +26,6 @@ public class Student {
 		this.sex = sex;
 	}
 
-
 	public Student(String name, int englishScore, int mathScore) {
 		this.name = name;
 		this.englishScore = englishScore;
