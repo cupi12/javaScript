@@ -48,7 +48,7 @@ public class ClientExample extends Application {
 			}
 		};
 		thread.start();
-	}//end of client()
+	}// end of client()
 
 	// stopClient()
 	void stopClient() {
@@ -64,7 +64,7 @@ public class ClientExample extends Application {
 				}
 			}
 		});
-	}//end of stopClient()
+	}// end of stopClient()
 
 	// recieve()
 	void receive() {
@@ -90,7 +90,7 @@ public class ClientExample extends Application {
 			}
 		}
 
-	}//end of receive()
+	}// end of receive()
 
 	// send()
 	void send(String data) {
@@ -116,7 +116,7 @@ public class ClientExample extends Application {
 			}
 
 		};
-
+		thread.start();
 	}
 	// start()
 
@@ -142,16 +142,17 @@ public class ClientExample extends Application {
 		btnConn = new Button("start");
 		btnConn.setPrefSize(60, 30);
 		btnConn.setOnAction(event -> {
-			if (btnConn.getText().contentEquals("start")) {
-				// startClient();
-			} else if (btnConn.getText().equals("stop")) {
-				// stopClient();
+			if (btnConn.getText().equals("start")) {
+				startClient();
+			} else if (btnConn.getText().contentEquals("stop")) {
+				stopClient();
 			}
 		});
 		btnSend = new Button("send");
 		btnSend.setPrefSize(60, 30);
 		btnSend.setDisable(true);
-		btnSend.setOnAction(event -> System.out.println());
+		btnSend.setOnAction(event -> send(txtInput.getText()));
+
 		bottom.setCenter(txtInput);
 		bottom.setLeft(btnConn);
 		bottom.setBottom(btnSend);
@@ -168,4 +169,4 @@ public class ClientExample extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}// end of main
-}
+}// end of class
