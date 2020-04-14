@@ -164,7 +164,7 @@ public class ServerExample extends Application { // 서버 + UI
 
 			};// end of runnable;
 			executorService.submit(runnable);
-		}
+		}//end of send
 
 	}// end of Client
 

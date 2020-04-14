@@ -45,6 +45,7 @@ public class ClientExample extends Application {
 					if (!socket.isClosed()) {
 					}
 				}
+				receive();
 			}
 		};
 		thread.start();
