@@ -222,5 +222,16 @@ public class HealthController implements Initializable {
 			data.remove(healthDO);
 		}
 	}
+	@FXML
+	public void HealthInitialize() {		
+		txtname.setText("");
+		txtphoneNum.setText("");
+		txtgender.setText("");
+		txtdivision.setText("");
+		txtbirth.setText("");
+		txtmoney.setText("");
+		txtcard.setText("");
+		txttotal.setText("");
+	}
 
 }

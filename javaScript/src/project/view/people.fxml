@@ -7,8 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="879.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.view.HealthController2">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="879.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.view.HealthController2">
    <children>
       <TableView fx:id="tvHealth" layoutX="14.0" layoutY="212.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#HealthInfo" prefHeight="400.0" prefWidth="800.0">
          <columns>
@@ -22,8 +21,8 @@
             <TableColumn fx:id="coltotal" prefWidth="100" text="total" />
          </columns>
       </TableView>
-      <Button layoutX="532.0" layoutY="38.0" mnemonicParsing="false" onAction="#selectAll" text="조회하기 " />
-      <Button layoutX="534.0" layoutY="89.0" mnemonicParsing="false" text="회원수정" />
+      <Button layoutX="532.0" layoutY="16.0" mnemonicParsing="false" onAction="#selectAll" text="조회하기 " />
+      <Button layoutX="534.0" layoutY="67.0" mnemonicParsing="false" text="회원수정" />
       <TextField fx:id="txtname2" layoutX="349.0" layoutY="15.0" />
       <TextField fx:id="txtphonenum2" layoutX="349.0" layoutY="38.0" />
       <TextField fx:id="txtgender2" layoutX="349.0" layoutY="58.0" />
@@ -40,6 +39,7 @@
       <Label layoutX="276.0" layoutY="131.0" text="현금결제" />
       <Label layoutX="276.0" layoutY="154.0" text="카드결제" />
       <Label layoutX="276.0" layoutY="177.0" text="결제금액" />
-      <Button layoutX="534.0" layoutY="139.0" mnemonicParsing="false" text="회원삭제" />
+      <Button layoutX="534.0" layoutY="121.0" mnemonicParsing="false" onAction="#delHealth" text="회원삭제" />
+      <Button layoutX="540.0" layoutY="166.0" mnemonicParsing="false" onAction="#peopleInitialize" text="초기화" />
    </children>
 </AnchorPane>

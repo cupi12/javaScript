@@ -219,4 +219,15 @@ public class HealthController2 implements Initializable {
 		}
 	}
 
+	@FXML
+	public void peopleInitialize() {
+		txtname2.setText("");
+		txtphonenum2.setText("");
+		txtgender2.setText("");
+		txtdivision2.setText("");
+		txtbirth2.setText("");
+		txtmoney2.setText("");
+		txtcard2.setText("");
+		txttotal2.setText("");
+	}
 }

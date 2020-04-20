@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.view.HealthController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.view.HealthController">
    <children>
       <Button layoutX="50.0" layoutY="19.0" mnemonicParsing="false" onAction="#selectAllView" text="회원 전체조회" />
       <Label layoutX="262.0" layoutY="14.0" text="회원정보" AnchorPane.topAnchor="14.0">
@@ -26,13 +26,14 @@
             <TextField fx:id="txtdivision" layoutX="456.0" layoutY="17.0" prefHeight="22.0" prefWidth="82.0" />
             <TextField fx:id="txtbirth" layoutX="109.0" layoutY="63.0" prefHeight="22.0" prefWidth="162.0" />
             <TextField fx:id="txtphoneNum" layoutX="364.0" layoutY="63.0" prefHeight="22.0" prefWidth="177.0" />
-            <Button layoutX="227.0" layoutY="105.0" mnemonicParsing="false" onAction="#HealthInsert" text="추가" />
+            <Button layoutX="175.0" layoutY="105.0" mnemonicParsing="false" onAction="#HealthInsert" text="추가" />
             <Label layoutX="380.0" layoutY="21.0" text="회원구분" />
             <Label layoutX="329.0" layoutY="67.0" text="H.P" />
             <Label layoutX="235.0" layoutY="21.0" text="성별" />
             <Label layoutX="44.0" layoutY="67.0" text="생년월일" />
             <Label layoutX="44.0" layoutY="20.0" text="회원명" />
-            <Button layoutX="336.0" layoutY="107.0" mnemonicParsing="false" onAction="#delete" text="삭제" />
+            <Button layoutX="284.0" layoutY="107.0" mnemonicParsing="false" onAction="#delete" text="삭제" />
+            <Button layoutX="390.0" layoutY="107.0" mnemonicParsing="false" onAction="#HealthInitialize" text="초기화" />
          </children>
       </Pane>
       <Pane layoutX="-4.0" layoutY="248.0" prefHeight="104.0" prefWidth="608.0" />
