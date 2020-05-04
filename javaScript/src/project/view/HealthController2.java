@@ -187,6 +187,7 @@ public class HealthController2 implements Initializable {
 	protected void selectAll(ActionEvent actionEvent) {
 		HealthDAO dao = new HealthDAO();
 		ArrayList<HealthDO> list = dao.selectAll();
+		
 		tvHealth.setItems(FXCollections.observableArrayList(list));
 	}
 	@FXML
@@ -201,6 +202,7 @@ public class HealthController2 implements Initializable {
 		txtcard2.setText(healthDO.getCard());
 		txttotal2.setText(healthDO.getTotal());
 	}
+	
 	@FXML
 	protected void delHealth(ActionEvent actionEvent) {
 		HealthDO healthDO = tvHealth.getSelectionModel().getSelectedItem();

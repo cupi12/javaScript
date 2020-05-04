@@ -21,7 +21,7 @@
             <TableColumn fx:id="coltotal" prefWidth="100" text="total" />
          </columns>
       </TableView>
-      <Button layoutX="532.0" layoutY="16.0" mnemonicParsing="false" onAction="#selectAll" text="조회하기 " />
+      <Button layoutX="532.0" layoutY="16.0" mnemonicParsing="false" onAction="#selectAll" text="전체조회" />
       <Button layoutX="534.0" layoutY="67.0" mnemonicParsing="false" text="회원수정" />
       <TextField fx:id="txtname2" layoutX="349.0" layoutY="15.0" />
       <TextField fx:id="txtphonenum2" layoutX="349.0" layoutY="38.0" />

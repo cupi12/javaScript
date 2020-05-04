@@ -48,12 +48,14 @@ public class HealthDAO implements Initializable {
 	}// end of getHealthEmp()
 
 	public ArrayList<HealthDO> selectAll() {// 전체조회
+		
 		ArrayList<HealthDO> list = new ArrayList<HealthDO>();
 		try {
 			conn = DriverManager.getConnection(url, user, pass);
-			pstmt = conn.prepareStatement("SELECT * FROM HealthEmp");
+			pstmt = conn.prepareStatement("SELECT * FROM healthemp");
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
+				HealthDO healthDo = new HealthDO();
 				healthDo.setName(rs.getString("name"));
 				healthDo.setPhoneNum(rs.getString("phonenum"));
 				healthDo.setGender(rs.getString("gender"));
@@ -63,19 +65,19 @@ public class HealthDAO implements Initializable {
 				healthDo.setCard(rs.getString("card"));
 				healthDo.setTotal(rs.getString("total"));
 				list.add(healthDo);
-
 			} // end of while
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
 		}
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.out.println(list);
+		
 		return list;
-	}// end of getHealthEmp()
+	}// end of selectAll()
 
 	// 등록기능
 	@FXML

@@ -212,7 +212,7 @@ public class HealthController implements Initializable {
 
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		alert.setTitle("삭제");
-		alert.setHeaderText("컬럼을 삭제합니다.");
+		alert.setHeaderText("회원을 삭제합니다.");
 		alert.setContentText("정말 삭제하시겠습니까");
 
 		Optional<ButtonType> result = alert.showAndWait();
